@@ -39,7 +39,7 @@ describe "Authentication" do
 		  it { should have_link('Sign in') }
 	  end
     end
-  end
+  
     describe "authorization" do
 
     describe "for non-signed-in users" do
@@ -115,7 +115,7 @@ describe "Authentication" do
           specify { response.should redirect_to(signin_path) }
         end
       end
-        describe "as wrong user" do
+    describe "as wrong user" do
       let(:user) { FactoryGirl.create(:user) }
       let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
       before { sign_in user }
@@ -130,7 +130,7 @@ describe "Authentication" do
         specify { response.should redirect_to(root_path) }
       end
     end
-	    describe "as non-admin user" do
+	describe "as non-admin user" do
       let(:user) { FactoryGirl.create(:user) }
       let(:non_admin) { FactoryGirl.create(:user) }
 
@@ -142,4 +142,6 @@ describe "Authentication" do
       end
     end
   end
+end
+end
 end
